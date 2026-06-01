@@ -28,10 +28,34 @@ pipeline {
 
         success {
             echo 'Build Successful'
+
+            emailext(
+                subject: "Jenkins Build Success - ${env.JOB_NAME}",
+                body: """
+                Build Successful
+
+                Job Name: ${env.JOB_NAME}
+                Build Number: ${env.BUILD_NUMBER}
+                Build URL: ${env.BUILD_URL}
+                """,
+                to: 'seleniumtesting923@gmail.com'
+            )
         }
 
         failure {
             echo 'Build Failed'
+
+            emailext(
+                subject: "Jenkins Build Failed - ${env.JOB_NAME}",
+                body: """
+                Build Failed
+
+                Job Name: ${env.JOB_NAME}
+                Build Number: ${env.BUILD_NUMBER}
+                Build URL: ${env.BUILD_URL}
+                """,
+                to: 'seleniumtesting923@gmail.com'
+            )
         }
     }
 }
