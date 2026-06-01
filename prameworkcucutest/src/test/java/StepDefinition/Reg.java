@@ -1,8 +1,7 @@
-
 package StepDefinition;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
 import org.testng.Assert;
 
 import Hooks.Hooks_Class;
@@ -15,12 +14,14 @@ import io.cucumber.java.en.When;
 public class Reg {
 
     WebDriver driver;
-Hooks_Class hc;
+    Hooks_Class hc;
     RegPage regPage;
 
     @Given("user open registration page")
     public void user_open_registration_page() {
-         driver = Hooks_Class.driver;
+
+        driver = Hooks_Class.driver;
+
         regPage = new RegPage(driver);
 
         regPage.clickMyAccount();
@@ -43,7 +44,14 @@ Hooks_Class hc;
     @When("^user enter register email (.*)$")
     public void user_enter_email(String email) {
 
+        if(email.equalsIgnoreCase("dynamic")) {
+
+            email = "test" + System.currentTimeMillis() + "@gmail.com";
+        }
+
         regPage.enterEmail(email);
+
+        System.out.println("Generated Email: " + email);
     }
 
     @When("^user enter telephone (.*)$")
@@ -88,7 +96,5 @@ Hooks_Class hc;
         );
 
         System.out.println("Registration Successful");
-
-        
     }
 }

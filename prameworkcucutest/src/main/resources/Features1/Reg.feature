@@ -20,6 +20,6 @@ And account should be created successfully
 
 
 Examples:
-| firstname | lastname | email               | telephone  | password |
-| Surya | Prakash | surya5243443sd4ec355gh51@gmail.com | 9876543210 | Surya123 |
-| Arun  | Kumar   | arun5sdsg4g42dr4c5r552@gmail.com  | 9876543211 | Arun123  |
+| firstname | lastname | email   | telephone  | password |
+| Surya     | Prakash  | dynamic | 9876543210 | Surya123 |
+| Arun      | Kumar    | dynamic | 9876543211 | Arun123  |
