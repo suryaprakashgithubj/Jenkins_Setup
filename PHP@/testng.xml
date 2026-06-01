@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<!--
+    testng.xml — PHPTravels Automation Suite
+
+    Q6  – parallel="methods" thread-count="5"  → 5 parallel scenario threads
+    Q5  – RetryListener wired here for automatic retry of failed tests
+-->
+<suite name="PHPTravels Automation Suite"
+       parallel="methods"
+       thread-count="2"
+       verbose="1">
+
+    <!-- Q5 – Retry failed tests: retry count = 1 (runs failed test once more) -->
+    <listeners>
+        <listener class-name="listeners.RetryListener"/>
+    </listeners>
+
+    <!-- Run ALL scenarios -->
+    <test name="PHPTravels Full Regression">
+        <classes>
+            <class name="runners.TestRunner"/>
+        </classes>
+    </test>
+
+    <!-- Run only @Smoke tagged scenarios (uncomment to use) -->
+    <!--
+    <test name="Smoke Tests">
+        <parameter name="tags" value="@Smoke"/>
+        <classes>
+            <class name="runners.TestRunner"/>
+        </classes>
+    </test>
+    -->
+
+</suite>

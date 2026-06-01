@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="9" passed="8" failed="1" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-05-30T14:27:13 IST" name="Default suite" finished-at="2026-05-30T14:32:08 IST" duration-ms="295733">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@7e990ed7]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test started-at="2026-05-30T14:27:13 IST" name="Default test" finished-at="2026-05-30T14:32:08 IST" duration-ms="295733">
+      <class name="runners.TestRunner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:runners.TestRunner@7e990ed7]" started-at="2026-05-30T14:27:13 IST" name="setUpClass" finished-at="2026-05-30T14:27:13 IST" duration-ms="353" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@10358c32]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@7e990ed7]" started-at="2026-05-30T14:27:13 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-30T14:28:29 IST" duration-ms="75623" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validate Registration"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["PHPTravels Registration Module"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@7e990ed7]" started-at="2026-05-30T14:27:13 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-30T14:28:12 IST" duration-ms="59462" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validate Login Functionality"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["PHPTravels Login Module"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@7e990ed7]" started-at="2026-05-30T14:27:13 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-30T14:28:12 IST" duration-ms="59490" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validate Login Functionality"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["PHPTravels Login Module"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@7e990ed7]" started-at="2026-05-30T14:27:13 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-30T14:28:06 IST" duration-ms="52925" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validate Login Functionality"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["PHPTravels Login Module"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@7e990ed7]" started-at="2026-05-30T14:27:13 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-30T14:29:30 IST" duration-ms="137319" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validate Hotel Prices"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Hotel Price Validation"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@7e990ed7]" started-at="2026-05-30T14:27:13 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-30T14:28:12 IST" duration-ms="59453" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validate Logout"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Logout Module"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@7e990ed7]" started-at="2026-05-30T14:27:13 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-30T14:29:11 IST" duration-ms="117720" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validate Hotel Search"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["PHPTravels Hotel Search"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@7e990ed7]" started-at="2026-05-30T14:27:13 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-30T14:28:09 IST" duration-ms="55714" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validate Login Functionality"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["PHPTravels Login Module"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runners.TestRunner@7e990ed7]" started-at="2026-05-30T14:27:13 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-05-30T14:32:08 IST" duration-ms="294836" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validate Booking"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Complete Booking Workflow"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Expected condition failed: waiting for element to be clickable: By.xpath: (//a[contains(@href,'/stay/')])[1] (tried for 40 second(s) with 500 milliseconds interval)
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '26.5', java.version: '21.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.179, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: /var/folders/bx/5btdglgx3kz...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55436}, goog:processID: 38273, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:55436/devtoo..., se:cdpVersion: 148.0.7778.179, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 9ccebf3066737f94f93905228b96a4a4]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Expected condition failed: waiting for element to be clickable: By.xpath: (//a[contains(@href,'/stay/')])[1] (tried for 40 second(s) with 500 milliseconds interval)
+Build info: version: '4.18.1', revision: 'b1d3319b48'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '26.5', java.version: '21.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.179, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: /var/folders/bx/5btdglgx3kz...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55436}, goog:processID: 38273, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:55436/devtoo..., se:cdpVersion: 148.0.7778.179, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 9ccebf3066737f94f93905228b96a4a4
+at org.testng.Assert.fail(Assert.java:111)
+at stepdefinitions.BookingSteps.user_clicks_book_now(BookingSteps.java:95)
+at ✽.user clicks book now(file:///Users/suryaprakashj/Downloads/PHP@/src/test/resources/features/Booking.feature:22)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:runners.TestRunner@7e990ed7]" started-at="2026-05-30T14:32:08 IST" name="tearDownClass" finished-at="2026-05-30T14:32:08 IST" duration-ms="521" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- runners.TestRunner -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
