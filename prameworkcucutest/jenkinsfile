@@ -38,7 +38,7 @@ pipeline {
                 Build Number: ${env.BUILD_NUMBER}
                 Build URL: ${env.BUILD_URL}
                 """,
-                to: 'seleniumtesting923@gmail.com'
+                to: 'suryaprakashj32@gmail.com'
             )
         }
 
@@ -54,7 +54,7 @@ pipeline {
                 Build Number: ${env.BUILD_NUMBER}
                 Build URL: ${env.BUILD_URL}
                 """,
-                to: 'seleniumtesting923@gmail.com'
+                to: 'suryaprakashj32@gmail.com'
             )
         }
     }
