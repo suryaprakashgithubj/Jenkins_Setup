@@ -1,61 +1,79 @@
-pipeline {
-    agent any
+tools {
+    maven 'Maven installations'
+}
 
-    tools {
-        maven 'Maven installations'
-    }
+stages {
 
-    stages {
-
-        stage('Clean') {
-            steps {
-                dir('prameworkcucutest') {
-                    sh 'mvn clean'
-                }
-            }
-        }
-
-        stage('Test') {
-            steps {
-                dir('prameworkcucutest') {
-                    sh 'mvn test'
-                }
+    stage('Clean') {
+        steps {
+            dir('prameworkcucutest') {
+                sh 'mvn clean'
             }
         }
     }
 
-    post {
-
-        success {
-            echo 'Build Successful'
-
-            emailext(
-                subject: "Jenkins Build Success - ${env.JOB_NAME}",
-                body: """
-                Build Successful
-
-                Job Name: ${env.JOB_NAME}
-                Build Number: ${env.BUILD_NUMBER}
-                Build URL: ${env.BUILD_URL}
-                """,
-                to: 'suryaprakashj32@gmail.com'
-            )
+    stage('Test') {
+        steps {
+            dir('prameworkcucutest') {
+                sh 'mvn test'
+            }
         }
+    }
+}
 
-        failure {
-            echo 'Build Failed'
+post {
 
-            emailext(
-                subject: "Jenkins Build Failed - ${env.JOB_NAME}",
-                body: """
-                Build Failed
+    success {
 
-                Job Name: ${env.JOB_NAME}
-                Build Number: ${env.BUILD_NUMBER}
-                Build URL: ${env.BUILD_URL}
-                """,
-                to: 'suryaprakashj32@gmail.com'
-            )
-        }
+        echo 'Build Successful'
+
+        emailext(
+            subject: "Jenkins Build Success - ${env.JOB_NAME}",
+            body: """
+            <h2>Build Successful</h2>
+
+            <p><b>Job Name:</b> ${env.JOB_NAME}</p>
+
+            <p><b>Build Number:</b> ${env.BUILD_NUMBER}</p>
+
+            <p><b>Build URL:</b>
+            <a href="${env.BUILD_URL}">
+            ${env.BUILD_URL}
+            </a></p>
+            """,
+
+            mimeType: 'text/html',
+
+            attachLog: true,
+
+            to: 'suryaprakashj32@gmail.com'
+        )
+    }
+
+    failure {
+
+        echo 'Build Failed'
+
+        emailext(
+            subject: "Jenkins Build Failed - ${env.JOB_NAME}",
+            body: """
+            <h2>Build Failed</h2>
+
+            <p><b>Job Name:</b> ${env.JOB_NAME}</p>
+
+            <p><b>Build Number:</b> ${env.BUILD_NUMBER}</p>
+
+            <p><b>Build URL:</b>
+            <a href="${env.BUILD_URL}">
+            ${env.BUILD_URL}
+            </a></p>
+            """,
+
+            mimeType: 'text/html',
+
+            attachLog: true,
+
+            to: 'suryaprakashj32@gmail.com'
+        )
     }
 }
