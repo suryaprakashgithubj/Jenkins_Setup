@@ -10,12 +10,11 @@ import org.testng.annotations.DataProvider;
         glue = {"stepdefinitions", "hooks"},
 
         tags = "not @Skip",
-        plugin = {
-                "pretty",
-                "html:target/cucumber-reports/CucumberReport.html",
-                "json:target/cucumber-reports/CucumberReport.json",
-                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
-        },
+        		plugin = {
+        			    "pretty",
+        			    "html:target/cucumber-reports.html",
+        			    "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
+        			},
         monochrome = true
 
 )
