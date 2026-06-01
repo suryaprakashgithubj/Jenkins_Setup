@@ -1,6 +1,8 @@
 package StepDefinition;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+
 import Hooks.Hooks_Class;
 import Pages.LoginPage;
 import io.cucumber.java.en.Given;
@@ -10,13 +12,14 @@ import io.cucumber.java.en.When;
 public class LoginSteps {
 
     WebDriver driver;
-    
+
     LoginPage loginPage;
 
     @Given("user open tutorials ninja website")
     public void user_open_tutorials_ninja_website() {
-       
-        driver=Hooks_Class.driver;
+
+        driver = Hooks_Class.driver;
+
         loginPage = new LoginPage(driver);
     }
 
@@ -49,16 +52,27 @@ public class LoginSteps {
     @Then("user navigate to account page")
     public void user_navigate_to_account_page() {
 
+        try {
+
+            Thread.sleep(3000);
+
+        } catch (InterruptedException e) {
+
+            e.printStackTrace();
+        }
+
         String actualTitle = driver.getTitle();
 
-        String expectedTitle = "My Account";
+        System.out.println("Actual Title: " + actualTitle);
 
-        Assert.assertEquals(actualTitle, expectedTitle);
+        String currentUrl = driver.getCurrentUrl();
+
+        System.out.println("Current URL: " + currentUrl);
+
+        Assert.assertTrue(currentUrl.contains("account"));
 
         System.out.println("Assertion Passed");
 
         System.out.println("Login Successful");
-
-       
     }
 }

@@ -77,9 +77,16 @@ public class Reg {
     @Then("account should be created successfully")
     public void account_should_be_created_successfully() {
 
-        String pageText =
-                driver.findElement(By.tagName("body"))
-                        .getText();
+        try {
+
+            Thread.sleep(3000);
+
+        } catch (InterruptedException e) {
+
+            e.printStackTrace();
+        }
+
+        String pageText = driver.getPageSource();
 
         System.out.println(pageText);
 
