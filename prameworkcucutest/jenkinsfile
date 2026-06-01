@@ -1,51 +1,51 @@
 pipeline {
     agent any
- 
+
     tools {
-        maven 'Maven3'
+        maven 'Maven installations'
     }
- 
+
     stages {
- 
+
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/vaishali1912/SDET_wipro_2026.git'
+                    url: 'https://github.com/suryaprakashgithubj/Jenkins_Setup.git'
             }
         }
- 
+
         stage('Build') {
             steps {
-                bat 'mvn clean'
+                sh 'mvn clean'
             }
         }
- 
+
         stage('Compile') {
             steps {
-                bat 'mvn compile'
+                sh 'mvn compile'
             }
         }
- 
+
         stage('Test') {
             steps {
-                bat 'mvn test'
+                sh 'mvn test'
             }
         }
- 
+
         stage('Package') {
             steps {
-                bat 'mvn package'
+                sh 'mvn package'
             }
         }
     }
- 
+
     post {
         success {
             echo 'Build Successful'
         }
- 
+
         failure {
             echo 'Build Failed'
         }
     }
-}
+}no
