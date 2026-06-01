@@ -1,3 +1,5 @@
+agent any
+
 tools {
     maven 'Maven installations'
 }
@@ -29,6 +31,7 @@ post {
 
         emailext(
             subject: "Jenkins Build Success - ${env.JOB_NAME}",
+
             body: """
             <h2>Build Successful</h2>
 
@@ -56,6 +59,7 @@ post {
 
         emailext(
             subject: "Jenkins Build Failed - ${env.JOB_NAME}",
+
             body: """
             <h2>Build Failed</h2>
 
