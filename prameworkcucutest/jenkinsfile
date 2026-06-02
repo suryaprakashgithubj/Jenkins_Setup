@@ -1,13 +1,15 @@
-environment {
-    PATH = "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-}
+pipeline {
+    agent any
 
-stages {
-
-    stage('Build') {
-        steps {
-            sh 'mvn clean test'
-        }
+    environment {
+        PATH = "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
     }
 
+    stages {
+        stage('Build') {
+            steps {
+                sh 'mvn clean test'
+            }
+        }
+    }
 }
