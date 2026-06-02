@@ -1,23 +1,19 @@
-stage('Start Selenium Chrome') {
-    steps {
-        sh '''
-        ${DOCKER} rm -f selenium-chrome || true
+pipeline {
+    agent any
 
-        ${DOCKER} run -d \
-          --name selenium-chrome \
-          --network selenium-net \
-          --shm-size=2g \
-          -p 4444:4444 \
-          -p 7900:7900 \
-          selenium/standalone-chrome:4.20.0
-        '''
+    stages {
 
-        sh '''
-        echo "Waiting for Selenium..."
-        until curl -s http://localhost:4444/status | grep -q '"ready":true'
-        do
-            sleep 5
-        done
-        '''
+        stage('Clone') {
+            steps {
+                git 'https://github.com/suryaprakashgithubj/Jenkins_Setup.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'mvn clean test'
+            }
+        }
+
     }
 }
