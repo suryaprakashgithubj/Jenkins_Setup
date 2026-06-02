@@ -23,17 +23,12 @@ public class Hooks_Class {
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--disable-gpu");
-        options.addArguments("--remote-allow-origins=*");
 
-        String remoteUrl = System.getProperty(
-                "selenium.remote.url",
-                "http://host.docker.internal:4444/wd/hub"
-        );
+        driver = new RemoteWebDriver(
+                new URL("http://host.docker.internal:4444/wd/hub"),
+                options);
 
-        driver = new RemoteWebDriver(new URL(remoteUrl), options);
-
-        driver.manage().timeouts()
-                .implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         driver.get("https://tutorialsninja.com/demo/");
     }
