@@ -1,16 +1,11 @@
-FROM selenium/standalone-chrome:latest
-
-# Install Maven
-RUN apt-get update && apt-get install -y maven
+FROM maven:3.9.6-eclipse-temurin-17
 
 WORKDIR /app
 
 COPY . .
 
-# Debug versions
-RUN java -version && mvn -version
-
-# Build project
+# Build project (skip tests during image build)
 RUN mvn clean install -DskipTests
 
+# Default test run
 CMD ["mvn", "test"]
