@@ -27,7 +27,7 @@ public class Hooks_Class {
             options.addArguments("--headless=new");
 
             driver = new RemoteWebDriver(
-                new URL("http://selenium-hub:4444"),
+                new URL("http://selenium-hub:4444/wd/hub"),  // ✅ FIXED
                 options
             );
 
