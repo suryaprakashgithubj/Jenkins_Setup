@@ -9,4 +9,5 @@ stages {
             sh 'mvn clean test'
         }
     }
+
 }
