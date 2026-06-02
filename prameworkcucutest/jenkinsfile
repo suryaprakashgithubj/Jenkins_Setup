@@ -1,23 +1,72 @@
-stage('Start Selenium Chrome') {
-    steps {
-        sh '''
-            docker rm -f selenium-chrome || true
-            
-            docker run -d \
-                --name selenium-chrome \
-                --network selenium-net \
-                -p 4444:4444 \
-                --shm-size=2g \
-                --platform linux/arm64 \
-                selenium/standalone-chrome:latest
-        '''
-        
-        timeout(time: 30, unit: 'SECONDS') {
-            sh '''
-                until curl -s http://localhost:4444/wd/hub/status | grep '"ready":true' > /dev/null; do
-                    sleep 2
-                done
-            '''
+pipeline {
+    agent any
+
+    environment {
+        SELENIUM_URL = 'http://selenium-chrome:4444/wd/hub'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/suryaprakashgithubj/Jenkins_Setup.git'
+            }
         }
+
+        stage('Build Docker Image') {
+            steps {
+                sh 'docker build -t cucumber-framework .'
+            }
+        }
+
+        stage('Create Network') {
+            steps {
+                sh 'docker network create selenium-net || true'
+            }
+        }
+
+        stage('Start Selenium Chrome') {
+            steps {
+                sh 'docker rm -f selenium-chrome || true'
+                
+                script {
+                    docker.image('selenium/standalone-chrome:latest').run('''
+                        --name selenium-chrome
+                        --network selenium-net
+                        -p 4444:4444
+                        --platform linux/arm64
+                        --shm-size=2g
+                    ''')
+                }
+
+                sh '''
+                    echo "Waiting for Selenium..."
+                    until curl -s http://localhost:4444/wd/hub/status | grep '"ready":true' > /dev/null
+                    do
+                        sleep 3
+                    done
+                    echo "Selenium is ready!"
+                '''
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                sh '''
+                    docker run --rm \
+                        --network selenium-net \
+                        cucumber-framework \
+                        mvn test \
+                        -Dselenium.remote.url=http://selenium-chrome:4444/wd/hub
+                '''
+            }
+        }
+    }
+
+    post {
+        always {
+            sh 'docker rm -f selenium-chrome || true'
+        }
+        success { echo 'BUILD SUCCESS' }
+        failure { echo 'BUILD FAILED' }
     }
 }
