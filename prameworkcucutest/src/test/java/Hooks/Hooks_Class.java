@@ -19,16 +19,25 @@ public class Hooks_Class {
         try {
 
             ChromeOptions options = new ChromeOptions();
+
             options.addArguments("--no-sandbox");
             options.addArguments("--disable-dev-shm-usage");
             options.addArguments("--headless=new");
 
+            String remoteUrl = System.getProperty(
+                "selenium.remote.url",
+                "http://selenium-chrome:4444/wd/hub"
+            );
+
             driver = new RemoteWebDriver(
-                new URL("http://localhost:4444/wd/hub"),
+                new URL(remoteUrl),
                 options
             );
 
             driver.manage().window().maximize();
+            driver.manage().timeouts()
+                    .implicitlyWait(Duration.ofSeconds(10));
+
             driver.get("https://tutorialsninja.com/demo/");
 
         } catch (Exception e) {
@@ -42,5 +51,4 @@ public class Hooks_Class {
             driver.quit();
         }
     }
-
 }

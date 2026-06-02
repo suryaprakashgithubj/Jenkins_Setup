@@ -33,6 +33,7 @@ pipeline {
                 ${DOCKER} rm -f selenium-chrome || true
 
                 ${DOCKER} run -d \
+                --platform linux/amd64 \
                 --name selenium-chrome \
                 --network selenium-net \
                 -p 4444:4444 \
