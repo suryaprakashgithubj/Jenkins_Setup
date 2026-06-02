@@ -1,10 +1,11 @@
 package Hooks;
 
+import java.net.URL;
 import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -16,24 +17,31 @@ public class Hooks_Class {
     @Before
     public void beforeTest() {
 
-        ChromeOptions options = new ChromeOptions();
+        try {
+            ChromeOptions options = new ChromeOptions();
 
-        options.addArguments("--headless=new");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--headless=new");
 
-        driver = new ChromeDriver(options);
+            driver = new RemoteWebDriver(
+                new URL("http://selenium-hub:4444"),
+                options
+            );
 
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+            driver.manage().window().maximize();
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-        driver.get("https://tutorialsninja.com/demo/");
+            driver.get("https://tutorialsninja.com/demo/");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @After
     public void afterTest() {
-
-        if(driver != null) {
+        if (driver != null) {
             driver.quit();
         }
     }
