@@ -25,7 +25,7 @@ public class Hooks_Class {
         options.addArguments("--disable-gpu");
 
         driver = new RemoteWebDriver(
-                new URL("http://host.docker.internal:4444/wd/hub"),
+                new URL("http://localhost:4444/wd/hub"),
                 options);
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
