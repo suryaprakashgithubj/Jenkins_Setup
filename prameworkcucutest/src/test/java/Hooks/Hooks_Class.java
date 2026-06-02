@@ -1,6 +1,6 @@
 package Hooks;
 
-import java.net.URI;
+import java.net.URL;
 import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
@@ -17,15 +17,21 @@ public class Hooks_Class {
     @Before
     public void beforeTest() {
         try {
-            System.out.println("🔥 Starting test session...");
+            System.out.println("🔥 Starting Selenium Grid Session");
 
             ChromeOptions options = new ChromeOptions();
+
+            // ✅ REQUIRED for Docker stability
             options.addArguments("--no-sandbox");
             options.addArguments("--disable-dev-shm-usage");
-            options.addArguments("--headless=new");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--window-size=1920,1080");
+
+            // ❌ DO NOT use headless while debugging (keep OFF first)
+            // options.addArguments("--headless=new");
 
             driver = new RemoteWebDriver(
-                URI.create("http://selenium-hub:4444").toURL(),
+                new URL("http://selenium-hub:4444/wd/hub"),
                 options
             );
 
@@ -36,14 +42,17 @@ public class Hooks_Class {
 
         } catch (Exception e) {
             e.printStackTrace();
-            throw new RuntimeException("WebDriver init failed", e);
         }
     }
 
     @After
     public void afterTest() {
-        if (driver != null) {
-            driver.quit();
+        try {
+            if (driver != null) {
+                driver.quit();
+            }
+        } catch (Exception e) {
+            System.out.println("Driver quit failed: " + e.getMessage());
         }
     }
 }
