@@ -1,40 +1,50 @@
 package Pages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AddCartPage {
 
-    WebDriver driver;
 
-    public AddCartPage(WebDriver driver) {
+WebDriver driver;
 
-        this.driver = driver;
-    }
+public AddCartPage(WebDriver driver) {
 
-    By searchBox = By.name("search");
+    this.driver = driver;
+}
 
-    By searchButton =
-            By.xpath("//button[@class='btn btn-default btn-lg']");
+By searchBox = By.name("search");
 
-    By addCartButton =
-            By.xpath("//span[text()='Add to Cart']");
+By searchButton =
+        By.xpath("//button[@class='btn btn-default btn-lg']");
 
-    public void searchProduct(String product) {
+By addCartButton =
+        By.xpath("//span[text()='Add to Cart']/parent::button");
 
-        driver.findElement(searchBox)
-                .sendKeys(product);
-    }
+public void searchProduct(String product) {
 
-    public void clickSearchButton() {
+    driver.findElement(searchBox)
+            .sendKeys(product);
+}
 
-        driver.findElement(searchButton)
-                .click();
-    }
+public void clickSearchButton() {
 
-    public void clickAddCartButton() {
+    driver.findElement(searchButton)
+            .click();
+}
 
-        driver.findElement(addCartButton)
-                .click();
-    }
+public void clickAddCartButton() {
+
+    WebDriverWait wait =
+            new WebDriverWait(driver, Duration.ofSeconds(10));
+
+    wait.until(ExpectedConditions.elementToBeClickable(addCartButton))
+            .click();
+}
+
+
 }
