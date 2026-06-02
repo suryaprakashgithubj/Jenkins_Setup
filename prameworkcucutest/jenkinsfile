@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER = '/usr/local/bin/docker'
-        SELENIUM_URL = 'http://selenium-chrome:4444'
+        SELENIUM_URL = 'http://selenium-chrome:4444/wd/hub'
     }
 
     stages {
@@ -37,10 +37,17 @@ pipeline {
                 --name selenium-chrome \
                 --network selenium-net \
                 -p 4444:4444 \
-                selenium/standalone-chrome
+                selenium/standalone-chrome:4.20.0
                 '''
 
-                sh 'sleep 30'
+                sh '''
+                echo "Waiting for Selenium..."
+
+                until curl -s http://localhost:4444/wd/hub/status | grep "ready"
+                do
+                    sleep 5
+                done
+                '''
             }
         }
 
@@ -51,13 +58,14 @@ pipeline {
                 --network selenium-net \
                 cucumber-framework \
                 mvn test \
-               -Dselenium.remote.url=http://selenium-chrome:4444/wd/hub
+                -Dselenium.remote.url=http://selenium-chrome:4444/wd/hub
                 '''
             }
         }
     }
 
     post {
+
         always {
             sh '${DOCKER} rm -f selenium-chrome || true'
         }
