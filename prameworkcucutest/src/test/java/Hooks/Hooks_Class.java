@@ -18,12 +18,13 @@ public class Hooks_Class {
     public void beforeTest() {
         try {
 
-            ChromeOptions options = new ChromeOptions();
+        	ChromeOptions options = new ChromeOptions();
 
-            options.addArguments("--no-sandbox");
-            options.addArguments("--disable-dev-shm-usage");
-            options.addArguments("--headless=new");
-
+        	options.addArguments("--headless=new");
+        	options.addArguments("--no-sandbox");
+        	options.addArguments("--disable-dev-shm-usage");
+        	options.addArguments("--disable-gpu");
+        	options.addArguments("--remote-allow-origins=*");
             String remoteUrl = System.getProperty(
                 "selenium.remote.url",
                 "http://selenium-chrome:4444/wd/hub"

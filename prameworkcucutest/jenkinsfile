@@ -40,7 +40,7 @@ pipeline {
                 selenium/standalone-chrome
                 '''
 
-                sh 'sleep 15'
+                sh 'sleep 30'
             }
         }
 
@@ -51,7 +51,7 @@ pipeline {
                 --network selenium-net \
                 cucumber-framework \
                 mvn test \
-                -Dselenium.remote.url=http://selenium-chrome:4444
+               -Dselenium.remote.url=http://selenium-chrome:4444/wd/hub
                 '''
             }
         }
