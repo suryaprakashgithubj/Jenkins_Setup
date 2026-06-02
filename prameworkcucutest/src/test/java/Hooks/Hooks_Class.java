@@ -18,6 +18,8 @@ public class Hooks_Class {
     public void beforeTest() {
 
         try {
+            System.out.println("🔥 HOOKS EXECUTED");
+
             ChromeOptions options = new ChromeOptions();
 
             options.addArguments("--no-sandbox");
