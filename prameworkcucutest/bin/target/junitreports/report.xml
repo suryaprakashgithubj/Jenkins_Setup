@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="31.406" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-06-01T09:21:17.295994Z">
+<testcase classname="Add To Cart Functionality" name="Verify user can add product to cart" time="4.586">
+<system-out><![CDATA[
+Given user open tutorials ninja home........................................passed
+When user search product for cart...........................................passed
+And user click add to cart button...........................................passed
+Then product should be added to cart successfully...........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Login Functionality" name="Verify login with valid credentials" time="5.26">
+<system-out><![CDATA[
+Given user open tutorials ninja website.....................................passed
+When user click on my account...............................................passed
+And user click on login.....................................................passed
+And user enter email and password...........................................passed
+Then user click login button................................................passed
+And user navigate to account page...........................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Logout Functionality" name="Verify user logout successfully" time="3.258">
+<system-out><![CDATA[
+Given user login into tutorials ninja application...........................passed
+When user click my account dropdown.........................................passed
+And user click logout option................................................passed
+Then user should logout successfully........................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Remove Cart Item" name="Verify user can remove item from cart" time="2.916">
+<system-out><![CDATA[
+Given user add product into cart............................................passed
+When user open shopping cart................................................passed
+And user remove cart item...................................................passed
+Then cart item should be removed............................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Registration Functionality" name="Verify user registration - #1.1" time="6.344">
+<system-out><![CDATA[
+Given user open registration page...........................................passed
+When user enter firstname Surya.............................................passed
+And user enter lastname Prakash.............................................passed
+And user enter register email dynamic.......................................passed
+And user enter telephone 9876543210.........................................passed
+And user enter password Surya123............................................passed
+Then user click continue button.............................................passed
+And account should be created successfully..................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Registration Functionality" name="Verify user registration - #1.2" time="6.715">
+<system-out><![CDATA[
+Given user open registration page...........................................passed
+When user enter firstname Arun..............................................passed
+And user enter lastname Kumar...............................................passed
+And user enter register email dynamic.......................................passed
+And user enter telephone 9876543211.........................................passed
+And user enter password Arun123.............................................passed
+Then user click continue button.............................................passed
+And account should be created successfully..................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Search Product" name="Verify product search" time="2.197">
+<system-out><![CDATA[
+Given user open home page...................................................passed
+When user enter product in search box.......................................passed
+And user click search button................................................passed
+Then searched product should display........................................passed
+]]></system-out>
+</testcase>
+</testsuite>
